@@ -91,7 +91,6 @@ TEST_CASE("send to Email to recepiant") {
 
 TEST_CASE("Check alert message send to Controller") {
   BatteryCharacter batteryChar;
-  double temperatureInC;
   batteryChar.coolingType = PASSIVE_COOLING;
   checkAndAlert(TO_CONTROLLER,batteryChar,-2);
   REQUIRE((strcmp(printBuffer,"0xfeed : 0x01")) == 1);
@@ -99,7 +98,6 @@ TEST_CASE("Check alert message send to Controller") {
 
 TEST_CASE("Check alert message send to Controller") {
   BatteryCharacter batteryChar;
-  double temperatureInC;
   batteryChar.coolingType = PASSIVE_COOLING;
   checkAndAlert(TO_CONTROLLER,batteryChar,20);
   REQUIRE((strcmp(printBuffer,"0xfeed : 0x00")) == 1);
@@ -107,7 +105,6 @@ TEST_CASE("Check alert message send to Controller") {
 
 TEST_CASE("Check alert message send to Controller") {
   BatteryCharacter batteryChar;
-  double temperatureInC;
   batteryChar.coolingType = PASSIVE_COOLING;
   checkAndAlert(TO_CONTROLLER,batteryChar,43);
   REQUIRE((strcmp(printBuffer,"0xfeed : 0x02")) == 1);
@@ -115,7 +112,6 @@ TEST_CASE("Check alert message send to Controller") {
 
 TEST_CASE("Check alert message send to Controller") {
   BatteryCharacter batteryChar;
-  double temperatureInC;
   batteryChar.coolingType = HI_ACTIVE_COOLING;
   checkAndAlert(TO_CONTROLLER,batteryChar,-2);
   REQUIRE((strcmp(printBuffer,"0xfeed : 0x01")) == 1);
@@ -123,7 +119,6 @@ TEST_CASE("Check alert message send to Controller") {
 
 TEST_CASE("Check alert message send to Controller") {
   BatteryCharacter batteryChar;
-  double temperatureInC;
   batteryChar.coolingType = HI_ACTIVE_COOLING;
   checkAndAlert(TO_CONTROLLER,batteryChar,20);
   REQUIRE((strcmp(printBuffer,"0xfeed : 0x00")) == 1);
@@ -131,7 +126,6 @@ TEST_CASE("Check alert message send to Controller") {
 
 TEST_CASE("Check alert message send to Controller") {
   BatteryCharacter batteryChar;
-  double temperatureInC;
   batteryChar.coolingType = HI_ACTIVE_COOLING;
   checkAndAlert(TO_CONTROLLER,batteryChar,50);
   REQUIRE((strcmp(printBuffer,"0xfeed : 0x02")) == 1);
@@ -139,7 +133,6 @@ TEST_CASE("Check alert message send to Controller") {
 
 TEST_CASE("Check alert message send to Controller") {
   BatteryCharacter batteryChar;
-  double temperatureInC;
   batteryChar.coolingType = MED_ACTIVE_COOLING;
   checkAndAlert(TO_CONTROLLER,batteryChar,-2);
   REQUIRE((strcmp(printBuffer,"0xfeed : 0x01")) == 1);
@@ -147,7 +140,6 @@ TEST_CASE("Check alert message send to Controller") {
 
 TEST_CASE("Check alert message send to Controller") {
   BatteryCharacter batteryChar;
-  double temperatureInC;
   batteryChar.coolingType = MED_ACTIVE_COOLING;
   checkAndAlert(TO_CONTROLLER,batteryChar,30);
   REQUIRE((strcmp(printBuffer,"0xfeed : 0x00")) == 1);
@@ -155,7 +147,6 @@ TEST_CASE("Check alert message send to Controller") {
 
 TEST_CASE("Check alert message send to Controller") {
   BatteryCharacter batteryChar;
-  double temperatureInC;
   batteryChar.coolingType = MED_ACTIVE_COOLING;
   checkAndAlert(TO_CONTROLLER,batteryChar,46);
   REQUIRE((strcmp(printBuffer,"0xfeed : 0x02")) == 1);
@@ -163,7 +154,6 @@ TEST_CASE("Check alert message send to Controller") {
 
 TEST_CASE("Check alert message send to Email") {
   BatteryCharacter batteryChar;
-  double temperatureInC;
   batteryChar.coolingType = PASSIVE_COOLING;
   checkAndAlert(TO_EMAIL,batteryChar,-2);
   REQUIRE((strcmp(printBuffer,emailWarnMsg[1])) == 1);
@@ -171,7 +161,6 @@ TEST_CASE("Check alert message send to Email") {
 
 TEST_CASE("Check alert message send to Email") {
   BatteryCharacter batteryChar;
-  double temperatureInC;
   batteryChar.coolingType = PASSIVE_COOLING;
   checkAndAlert(TO_EMAIL,batteryChar,20);
   REQUIRE((strcmp(printBuffer,emailWarnMsg[0])) == 1);
@@ -179,7 +168,6 @@ TEST_CASE("Check alert message send to Email") {
 
 TEST_CASE("Check alert message send to Email") {
   BatteryCharacter batteryChar;
-  double temperatureInC;
   batteryChar.coolingType = PASSIVE_COOLING;
   checkAndAlert(TO_EMAIL,batteryChar,43);
   REQUIRE((strcmp(printBuffer,emailWarnMsg[2])) == 1);
@@ -187,7 +175,6 @@ TEST_CASE("Check alert message send to Email") {
 
 TEST_CASE("Check alert message send to Email") {
   BatteryCharacter batteryChar;
-  double temperatureInC;
   batteryChar.coolingType = HI_ACTIVE_COOLING;
   checkAndAlert(TO_EMAIL,batteryChar,-2);
   REQUIRE((strcmp(printBuffer,emailWarnMsg[1])) == 1);
@@ -195,7 +182,6 @@ TEST_CASE("Check alert message send to Email") {
 
 TEST_CASE("Check alert message send to Email") {
   BatteryCharacter batteryChar;
-  double temperatureInC;
   batteryChar.coolingType = HI_ACTIVE_COOLING;
   checkAndAlert(TO_EMAIL,batteryChar,20);
   REQUIRE((strcmp(printBuffer,emailWarnMsg[0])) == 1);
@@ -203,7 +189,6 @@ TEST_CASE("Check alert message send to Email") {
 
 TEST_CASE("Check alert message send to Email") {
   BatteryCharacter batteryChar;
-  double temperatureInC;
   batteryChar.coolingType = HI_ACTIVE_COOLING;
   checkAndAlert(TO_EMAIL,batteryChar,50);
   REQUIRE((strcmp(printBuffer,emailWarnMsg[2])) == 1);
@@ -211,7 +196,6 @@ TEST_CASE("Check alert message send to Email") {
 
 TEST_CASE("Check alert message send to Email") {
   BatteryCharacter batteryChar;
-  double temperatureInC;
   batteryChar.coolingType = MED_ACTIVE_COOLING;
   checkAndAlert(TO_EMAIL,batteryChar,-2);
   REQUIRE((strcmp(printBuffer,emailWarnMsg[1])) == 1);
@@ -219,7 +203,6 @@ TEST_CASE("Check alert message send to Email") {
 
 TEST_CASE("Check alert message send to Email") {
   BatteryCharacter batteryChar;
-  double temperatureInC;
   batteryChar.coolingType = MED_ACTIVE_COOLING;
   checkAndAlert(TO_EMAIL,batteryChar,30);
   REQUIRE((strcmp(printBuffer,emailWarnMsg[0])) == 1);
@@ -227,7 +210,6 @@ TEST_CASE("Check alert message send to Email") {
 
 TEST_CASE("Check alert message send to Email") {
   BatteryCharacter batteryChar;
-  double temperatureInC;
   batteryChar.coolingType = MED_ACTIVE_COOLING;
   checkAndAlert(TO_EMAIL,batteryChar,46);
   REQUIRE((strcmp(printBuffer,emailWarnMsg[2])) == 1);
