@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <alertMsgConfig.h>
+#include "alertMsgConfig.h"
 
 st_TempLimits tempLimitValues[3] = {
         {

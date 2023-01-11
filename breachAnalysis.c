@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include <alertMsgConfig.h>
-#include <typewise-alert.h>
-#include <breachAnalysis.h>
+#include "alertMsgConfig.h"
+#include "typewise-alert.h"
+#include "breachAnalysis.h"
 
 extern st_TempLimits tempLimitValues[3];
 

@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <string.h>
-#include <typewise-alert.h>
-#include <SendAlert.h>
-#include <print.h>
+#include "typewise-alert.h"
+#include "SendAlert.h"
+#include "print.h"
 
 char printBuffer[50];
 extern const char* emailWarnMsg[2];

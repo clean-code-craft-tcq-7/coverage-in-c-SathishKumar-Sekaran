@@ -1,10 +1,10 @@
 #define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
 
 #include "test/catch.hpp"
-#include <alertMsgConfig.h>
+#include "alertMsgConfig.h"
 #include "typewise-alert.h"
-#include <breachAnalysis.h>
-#include <SendAlert.h>
+#include "breachAnalysis.h"
+#include "SendAlert.h"
 #include <string.h>
 
 extern char printBuffer[50];
