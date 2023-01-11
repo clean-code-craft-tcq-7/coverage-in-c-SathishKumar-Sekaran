@@ -54,7 +54,7 @@ TEST_CASE("Get the breach according to limit Is High with Mid active cooling") {
   REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING,50) == TOO_HIGH);
 }
 
-TEST_CASE("Get the breach according to limit Is Low with Mid active cooling") {
+TEST_CASE("Get the breach according to limit Is Normal with Mid active cooling") {
   REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING,37) == NORMAL);
 }
 
