@@ -3,5 +3,5 @@
 
 void printMsg(const char* message)
 {
-  printf("%s",message);
+  printf("%s\n",message);
 }
