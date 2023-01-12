@@ -74,13 +74,13 @@ TEST_CASE("Breach send to controller when limit is Normal") {
   REQUIRE((strcmp(printBuffer,"feed : 0")) == 0);
 }
 
-TEST_CASE("send to Email to recepiant when limit is Normal") {
-  sendToEmail(NORMAL);
-  REQUIRE((strcmp(printBuffer,emailWarnMsg[0])) == 0);
-}
-
 TEST_CASE("send to Email to recepiant when limit is Low") {
   sendToEmail(TOO_LOW);
+  REQUIRE((strcmp(printBuffer,emailWarnMsg[1])) == 0);
+}
+
+TEST_CASE("send to Email to recepiant when limit is Normal") {
+  sendToEmail(NORMAL);
   REQUIRE((strcmp(printBuffer,emailWarnMsg[1])) == 0);
 }
 
