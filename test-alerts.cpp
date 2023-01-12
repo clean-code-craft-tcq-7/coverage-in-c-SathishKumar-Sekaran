@@ -61,17 +61,17 @@ TEST_CASE("Get the breach according to limit Is Normal with Mid active cooling")
 
 TEST_CASE("Breach send to controller when limit is Low") {
   sendToController(TOO_LOW);
-  REQUIRE((strcmp(printBuffer,"0xfeed : 0x01")) == 0);
+  REQUIRE((strcmp(printBuffer,"feed : 1")) == 0);
 }
 
 TEST_CASE("Breach send to controller when limit is High") {
   sendToController(TOO_HIGH);
-  REQUIRE((strcmp(printBuffer,"0xfeed : 0x02")) == 0);
+  REQUIRE((strcmp(printBuffer,"feed : 2")) == 0);
 }
 
 TEST_CASE("Breach send to controller when limit is Normal") {
   sendToController(NORMAL);
-  REQUIRE((strcmp(printBuffer,"0xfeed : 0x00")) == 0);
+  REQUIRE((strcmp(printBuffer,"feed : 0")) == 0);
 }
 
 TEST_CASE("send to Email to recepiant when limit is Normal") {
@@ -93,63 +93,63 @@ TEST_CASE("Check alert message send to Controller for passive cooling type with 
   BatteryCharacter batteryChar;
   batteryChar.coolingType = PASSIVE_COOLING;
   checkAndAlert(TO_CONTROLLER,batteryChar,-2);
-  REQUIRE((strcmp(printBuffer,"0xfeed : 0x01")) == 0);
+  REQUIRE((strcmp(printBuffer,"feed : 1")) == 0);
 }
 
 TEST_CASE("Check alert message send to Controller for passive cooling type with Normal limits") {
   BatteryCharacter batteryChar;
   batteryChar.coolingType = PASSIVE_COOLING;
   checkAndAlert(TO_CONTROLLER,batteryChar,20);
-  REQUIRE((strcmp(printBuffer,"0xfeed : 0x00")) == 0);
+  REQUIRE((strcmp(printBuffer,"feed : 0")) == 0);
 }
 
 TEST_CASE("Check alert message send to Controller for passive cooling type with High limits") {
   BatteryCharacter batteryChar;
   batteryChar.coolingType = PASSIVE_COOLING;
   checkAndAlert(TO_CONTROLLER,batteryChar,43);
-  REQUIRE((strcmp(printBuffer,"0xfeed : 0x02")) == 0);
+  REQUIRE((strcmp(printBuffer,"feed : 2")) == 0);
 }
 
 TEST_CASE("Check alert message send to Controller for Hi active cooling type with Low limits") {
   BatteryCharacter batteryChar;
   batteryChar.coolingType = HI_ACTIVE_COOLING;
   checkAndAlert(TO_CONTROLLER,batteryChar,-2);
-  REQUIRE((strcmp(printBuffer,"0xfeed : 0x01")) == 0);
+  REQUIRE((strcmp(printBuffer,"feed : 1")) == 0);
 }
 
 TEST_CASE("Check alert message send to Controller for Hi active cooling type with normal limits") {
   BatteryCharacter batteryChar;
   batteryChar.coolingType = HI_ACTIVE_COOLING;
   checkAndAlert(TO_CONTROLLER,batteryChar,20);
-  REQUIRE((strcmp(printBuffer,"0xfeed : 0x00")) == 0);
+  REQUIRE((strcmp(printBuffer,"feed : 0")) == 0);
 }
 
 TEST_CASE("Check alert message send to Controller for Hi active cooling type with High limits") {
   BatteryCharacter batteryChar;
   batteryChar.coolingType = HI_ACTIVE_COOLING;
   checkAndAlert(TO_CONTROLLER,batteryChar,50);
-  REQUIRE((strcmp(printBuffer,"0xfeed : 0x02")) == 0);
+  REQUIRE((strcmp(printBuffer,"feed : 2")) == 0);
 }
 
 TEST_CASE("Check alert message send to Controller for Mid active cooling type with Low limits") {
   BatteryCharacter batteryChar;
   batteryChar.coolingType = MED_ACTIVE_COOLING;
   checkAndAlert(TO_CONTROLLER,batteryChar,-2);
-  REQUIRE((strcmp(printBuffer,"0xfeed : 0x01")) == 0);
+  REQUIRE((strcmp(printBuffer,"feed : 1")) == 0);
 }
 
 TEST_CASE("Check alert message send to Controller for Mid active cooling type with Normal limits") {
   BatteryCharacter batteryChar;
   batteryChar.coolingType = MED_ACTIVE_COOLING;
   checkAndAlert(TO_CONTROLLER,batteryChar,30);
-  REQUIRE((strcmp(printBuffer,"0xfeed : 0x00")) == 0);
+  REQUIRE((strcmp(printBuffer,"feed : 0")) == 0);
 }
 
 TEST_CASE("Check alert message send to Controller for Mid active cooling type with High limits") {
   BatteryCharacter batteryChar;
   batteryChar.coolingType = MED_ACTIVE_COOLING;
   checkAndAlert(TO_CONTROLLER,batteryChar,46);
-  REQUIRE((strcmp(printBuffer,"0xfeed : 0x02")) == 0);
+  REQUIRE((strcmp(printBuffer,"feed : 2")) == 0);
 }
 
 TEST_CASE("Check alert message send to Email for passive cooling type with Low limits") {
@@ -163,7 +163,7 @@ TEST_CASE("Check alert message send to Email for Passive cooling type with norma
   BatteryCharacter batteryChar;
   batteryChar.coolingType = PASSIVE_COOLING;
   checkAndAlert(TO_EMAIL,batteryChar,20);
-  REQUIRE((strcmp(printBuffer,emailWarnMsg[0])) == 0);
+  REQUIRE((strcmp(printBuffer,emailWarnMsg[1])) == 0);
 }
 
 TEST_CASE("Check alert message send to Email for Passive cooling type with High limits") {
@@ -184,7 +184,7 @@ TEST_CASE("Check alert message send to Email for Hi active cooling type with Nor
   BatteryCharacter batteryChar;
   batteryChar.coolingType = HI_ACTIVE_COOLING;
   checkAndAlert(TO_EMAIL,batteryChar,20);
-  REQUIRE((strcmp(printBuffer,emailWarnMsg[0])) == 0);
+  REQUIRE((strcmp(printBuffer,emailWarnMsg[1])) == 0);
 }
 
 TEST_CASE("Check alert message send to Email for Hi active cooling type with High limits") {
@@ -205,7 +205,7 @@ TEST_CASE("Check alert message send to Email for Mid active cooling type with No
   BatteryCharacter batteryChar;
   batteryChar.coolingType = MED_ACTIVE_COOLING;
   checkAndAlert(TO_EMAIL,batteryChar,30);
-  REQUIRE((strcmp(printBuffer,emailWarnMsg[0])) == 0);
+  REQUIRE((strcmp(printBuffer,emailWarnMsg[1])) == 0);
 }
 
 TEST_CASE("Check alert message send to Email for Mid active cooling type with High limits") {
