@@ -7,6 +7,11 @@
 char printBuffer[50];
 extern const char* emailWarnMsg[2];
 
+alertFuncPtr alertType[2] = {
+        &sendToController, 
+        &sendToEmail
+        };
+
 void sendToController(BreachType breachType) {
   const unsigned short header = 0xfeed;
   sprintf(printBuffer,"%x : %x", header, breachType);
