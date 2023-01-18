@@ -136,6 +136,7 @@ TEST_CASE("Check alert message send to Controller for Hi active cooling type wit
   BatteryCharacter batteryChar;
   batteryChar.coolingType = HI_ACTIVE_COOLING;
   alertType[TO_CONTROLLER] = &cntrlrAlertMock;
+  checkAndAlert(TO_CONTROLLER,batteryChar,-1);
   REQUIRE(test_cntrlrAlerted == 1);
   REQUIRE(test_cntrlrBrchType == TOO_LOW);
 }
@@ -171,7 +172,7 @@ TEST_CASE("Check alert message send to Controller for Mid active cooling type wi
   BatteryCharacter batteryChar;
   batteryChar.coolingType = MED_ACTIVE_COOLING;
   alertType[TO_CONTROLLER] = &cntrlrAlertMock;
-  checkAndAlert(TO_CONTROLLER,batteryChar,30);
+  checkAndAlert(TO_CONTROLLER,batteryChar,20);
   REQUIRE(test_cntrlrAlerted == 1);
   REQUIRE(test_cntrlrBrchType == NORMAL);
 }
