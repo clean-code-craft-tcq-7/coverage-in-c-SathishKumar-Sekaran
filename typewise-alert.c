@@ -11,6 +11,6 @@ void checkAndAlert(
   BreachType breachType = classifyTemperatureBreach(
     batteryChar.coolingType, temperatureInC
   );
-  (*alert_Funptr[alertTarget])(breachType);
+  alertType[alertTarget](breachType);
 }
 
