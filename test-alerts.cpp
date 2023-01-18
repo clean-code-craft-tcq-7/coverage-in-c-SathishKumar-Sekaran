@@ -107,7 +107,7 @@ TEST_CASE("Get the breach according to limit Is Normal with Mid active cooling")
 TEST_CASE("Check alert message send to Controller for passive cooling type with Low limits") {
   BatteryCharacter batteryChar;
   batteryChar.coolingType = PASSIVE_COOLING;
-  alert_Funptr[TO_CONTROLLER] = &cntrlrAlertMock;
+  alertType[TO_CONTROLLER] = &cntrlrAlertMock;
 
   checkAndAlert(TO_CONTROLLER,batteryChar,-2);
   REQUIRE(test_cntrlrAlerted == 1);
@@ -117,7 +117,7 @@ TEST_CASE("Check alert message send to Controller for passive cooling type with 
 TEST_CASE("Check alert message send to Controller for passive cooling type with Normal limits") {
   BatteryCharacter batteryChar;
   batteryChar.coolingType = PASSIVE_COOLING;
-  alert_Funptr[TO_CONTROLLER] = &cntrlrAlertMock;
+  alertType[TO_CONTROLLER] = &cntrlrAlertMock;
   checkAndAlert(TO_CONTROLLER,batteryChar,20);
   REQUIRE(test_cntrlrAlerted == 1);
   REQUIRE(test_cntrlrBrchType == NORMAL);
@@ -126,7 +126,7 @@ TEST_CASE("Check alert message send to Controller for passive cooling type with 
 TEST_CASE("Check alert message send to Controller for passive cooling type with High limits") {
   BatteryCharacter batteryChar;
   batteryChar.coolingType = PASSIVE_COOLING;
-  alert_Funptr[TO_CONTROLLER] = &cntrlrAlertMock;
+  alertType[TO_CONTROLLER] = &cntrlrAlertMock;
   checkAndAlert(TO_CONTROLLER,batteryChar,43);
   REQUIRE(test_cntrlrAlerted == 1);
   REQUIRE(test_cntrlrBrchType == TOO_HIGH);
@@ -135,7 +135,7 @@ TEST_CASE("Check alert message send to Controller for passive cooling type with 
 TEST_CASE("Check alert message send to Controller for Hi active cooling type with Low limits") {
   BatteryCharacter batteryChar;
   batteryChar.coolingType = HI_ACTIVE_COOLING;
-  alert_Funptr[TO_CONTROLLER] = &cntrlrAlertMock;
+  alertType[TO_CONTROLLER] = &cntrlrAlertMock;
   REQUIRE(test_cntrlrAlerted == 1);
   REQUIRE(test_cntrlrBrchType == TOO_LOW);
 }
@@ -143,7 +143,7 @@ TEST_CASE("Check alert message send to Controller for Hi active cooling type wit
 TEST_CASE("Check alert message send to Controller for Hi active cooling type with normal limits") {
   BatteryCharacter batteryChar;
   batteryChar.coolingType = HI_ACTIVE_COOLING;
-  alert_Funptr[TO_CONTROLLER] = &cntrlrAlertMock;
+  alertType[TO_CONTROLLER] = &cntrlrAlertMock;
   checkAndAlert(TO_CONTROLLER,batteryChar,20);
   REQUIRE(test_cntrlrAlerted == 1);
   REQUIRE(test_cntrlrBrchType == NORMAL);
@@ -152,7 +152,7 @@ TEST_CASE("Check alert message send to Controller for Hi active cooling type wit
 TEST_CASE("Check alert message send to Controller for Hi active cooling type with High limits") {
   BatteryCharacter batteryChar;
   batteryChar.coolingType = HI_ACTIVE_COOLING;
-  alert_Funptr[TO_CONTROLLER] = &cntrlrAlertMock;
+  alertType[TO_CONTROLLER] = &cntrlrAlertMock;
   checkAndAlert(TO_CONTROLLER,batteryChar,50);
   REQUIRE(test_cntrlrAlerted == 1);
   REQUIRE(test_cntrlrBrchType == TOO_HIGH);
@@ -161,7 +161,7 @@ TEST_CASE("Check alert message send to Controller for Hi active cooling type wit
 TEST_CASE("Check alert message send to Controller for Mid active cooling type with Low limits") {
   BatteryCharacter batteryChar;
   batteryChar.coolingType = MED_ACTIVE_COOLING;
-  alert_Funptr[TO_CONTROLLER] = &cntrlrAlertMock;
+  alertType[TO_CONTROLLER] = &cntrlrAlertMock;
   checkAndAlert(TO_CONTROLLER,batteryChar,-2);
   REQUIRE(test_cntrlrAlerted == 1);
   REQUIRE(test_cntrlrBrchType == TOO_LOW);
@@ -170,7 +170,7 @@ TEST_CASE("Check alert message send to Controller for Mid active cooling type wi
 TEST_CASE("Check alert message send to Controller for Mid active cooling type with Normal limits") {
   BatteryCharacter batteryChar;
   batteryChar.coolingType = MED_ACTIVE_COOLING;
-  alert_Funptr[TO_CONTROLLER] = &cntrlrAlertMock;
+  alertType[TO_CONTROLLER] = &cntrlrAlertMock;
   checkAndAlert(TO_CONTROLLER,batteryChar,30);
   REQUIRE(test_cntrlrAlerted == 1);
   REQUIRE(test_cntrlrBrchType == NORMAL);
@@ -179,7 +179,7 @@ TEST_CASE("Check alert message send to Controller for Mid active cooling type wi
 TEST_CASE("Check alert message send to Controller for Mid active cooling type with High limits") {
   BatteryCharacter batteryChar;
   batteryChar.coolingType = MED_ACTIVE_COOLING;
-  alert_Funptr[TO_CONTROLLER] = &cntrlrAlertMock;
+  alertType[TO_CONTROLLER] = &cntrlrAlertMock;
   REQUIRE(test_cntrlrAlerted == 1);
   REQUIRE(test_cntrlrBrchType == TOO_HIGH);
 }
@@ -187,7 +187,7 @@ TEST_CASE("Check alert message send to Controller for Mid active cooling type wi
 TEST_CASE("Check alert message send to Email for passive cooling type with Low limits") {
   BatteryCharacter batteryChar;
   batteryChar.coolingType = PASSIVE_COOLING;
-  alert_Funptr[TO_EMAIL] = &emailAlertMock;
+  alertType[TO_EMAIL] = &emailAlertMock;
   checkAndAlert(TO_EMAIL,batteryChar,-2);
   REQUIRE(test_emailAlerted == 1);
   REQUIRE(test_emailBrchType == TOO_LOW);
@@ -196,7 +196,7 @@ TEST_CASE("Check alert message send to Email for passive cooling type with Low l
 TEST_CASE("Check alert message send to Email for Passive cooling type with normal limits") {
   BatteryCharacter batteryChar;
   batteryChar.coolingType = PASSIVE_COOLING;
-  alert_Funptr[TO_EMAIL] = &emailAlertMock;
+  alertType[TO_EMAIL] = &emailAlertMock;
   checkAndAlert(TO_EMAIL,batteryChar,20);
   REQUIRE(test_emailAlerted == 1);
   REQUIRE(test_emailBrchType == NORMAL);
@@ -205,7 +205,7 @@ TEST_CASE("Check alert message send to Email for Passive cooling type with norma
 TEST_CASE("Check alert message send to Email for Passive cooling type with High limits") {
   BatteryCharacter batteryChar;
   batteryChar.coolingType = PASSIVE_COOLING;
-  alert_Funptr[TO_EMAIL] = &emailAlertMock;
+  alertType[TO_EMAIL] = &emailAlertMock;
   checkAndAlert(TO_EMAIL,batteryChar,43);
   REQUIRE(test_emailAlerted == 1);
   REQUIRE(test_emailBrchType == TOO_HIGH);
@@ -214,7 +214,7 @@ TEST_CASE("Check alert message send to Email for Passive cooling type with High 
 TEST_CASE("Check alert message send to Email for Hi active cooling type with Low limits") {
   BatteryCharacter batteryChar;
   batteryChar.coolingType = HI_ACTIVE_COOLING;
-  alert_Funptr[TO_EMAIL] = &emailAlertMock;
+  alertType[TO_EMAIL] = &emailAlertMock;
   checkAndAlert(TO_EMAIL,batteryChar,-2);
   REQUIRE(test_emailAlerted == 1);
   REQUIRE(test_emailBrchType == TOO_LOW);
@@ -223,7 +223,7 @@ TEST_CASE("Check alert message send to Email for Hi active cooling type with Low
 TEST_CASE("Check alert message send to Email for Hi active cooling type with Normal limits") {
   BatteryCharacter batteryChar;
   batteryChar.coolingType = HI_ACTIVE_COOLING;
-  alert_Funptr[TO_EMAIL] = &emailAlertMock;
+  alertType[TO_EMAIL] = &emailAlertMock;
   checkAndAlert(TO_EMAIL,batteryChar,20);
   REQUIRE(test_emailAlerted == 1);
   REQUIRE(test_emailBrchType == NORMAL);
@@ -232,7 +232,7 @@ TEST_CASE("Check alert message send to Email for Hi active cooling type with Nor
 TEST_CASE("Check alert message send to Email for Hi active cooling type with High limits") {
   BatteryCharacter batteryChar;
   batteryChar.coolingType = HI_ACTIVE_COOLING;
-  alert_Funptr[TO_EMAIL] = &emailAlertMock;
+  alertType[TO_EMAIL] = &emailAlertMock;
   checkAndAlert(TO_EMAIL,batteryChar,50);
   REQUIRE(test_emailAlerted == 1);
   REQUIRE(test_emailBrchType == TOO_HIGH);
@@ -241,7 +241,7 @@ TEST_CASE("Check alert message send to Email for Hi active cooling type with Hig
 TEST_CASE("Check alert message send to Email for Mid active cooling type with Low limits") {
   BatteryCharacter batteryChar;
   batteryChar.coolingType = MED_ACTIVE_COOLING;
-  alert_Funptr[TO_EMAIL] = &emailAlertMock;
+  alertType[TO_EMAIL] = &emailAlertMock;
   checkAndAlert(TO_EMAIL,batteryChar,-2);
   REQUIRE(test_emailAlerted == 1);
   REQUIRE(test_emailBrchType == TOO_LOW);
@@ -250,7 +250,7 @@ TEST_CASE("Check alert message send to Email for Mid active cooling type with Lo
 TEST_CASE("Check alert message send to Email for Mid active cooling type with Normal limits") {
   BatteryCharacter batteryChar;
   batteryChar.coolingType = MED_ACTIVE_COOLING;
-  alert_Funptr[TO_EMAIL] = &emailAlertMock;
+  alertType[TO_EMAIL] = &emailAlertMock;
   checkAndAlert(TO_EMAIL,batteryChar,30);
   REQUIRE(test_emailAlerted == 1);
   REQUIRE(test_emailBrchType == NORMAL);
@@ -259,7 +259,7 @@ TEST_CASE("Check alert message send to Email for Mid active cooling type with No
 TEST_CASE("Check alert message send to Email for Mid active cooling type with High limits") {
   BatteryCharacter batteryChar;
   batteryChar.coolingType = MED_ACTIVE_COOLING;
-  alert_Funptr[TO_EMAIL] = &emailAlertMock;
+  alertType[TO_EMAIL] = &emailAlertMock;
   checkAndAlert(TO_EMAIL,batteryChar,46);
   REQUIRE(test_emailAlerted == 1);
   REQUIRE(test_emailBrchType == TOO_HIGH);
