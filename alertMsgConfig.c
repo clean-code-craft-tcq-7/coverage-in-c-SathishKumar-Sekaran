@@ -22,4 +22,7 @@ const char* emailWarnMsg[3] = {
         "Hi, the temperature is too high",
 };
 
-void (*alert_Funptr[2])(BreachType) = {sendToController, sendToEmail};
+alertFuncPtr alertType[2] = {
+        &sendToController, 
+        &sendToEmail
+        };
